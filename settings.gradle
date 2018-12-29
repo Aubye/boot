@@ -1,0 +1,9 @@
+rootProject.name = 'boot'
+
+include('platform:platform-commons')
+
+include('service:index-service')
+include('service:item-service')
+
+include('web:index-web')
+include('web:item-web')
