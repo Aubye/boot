@@ -77,14 +77,22 @@ allprojects {
         compile("com.fasterxml.jackson.module:jackson-module-kotlin")
 
         compile("com.h2database:h2:1.4.196")
+
         compile("org.modelmapper:modelmapper:1.1.2")
+
+        compile("com.google.guava:guava:25.0-jre")
+
+        compile("org.apache.commons:commons-lang3:3.8.1")
+        compile("commons-collections:commons-collections:3.2.2")
+        compile("commons-io:commons-io:2.6")
 
         runtime("org.springframework.boot:spring-boot-devtools")
 
         testCompile("org.springframework.boot:spring-boot-starter-test") {
-            exclude module: "junit"
+            //exclude module: "junit"
         }
-        testImplementation("org.junit.jupiter:junit-jupiter-api")
+        testCompile("org.junit.jupit:4.12")
+        testCompile("org.junit.jupiter:junit-jupiter-api")
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     }
 }
