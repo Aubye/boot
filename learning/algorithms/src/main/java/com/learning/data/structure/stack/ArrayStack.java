@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class ArrayStack<T> implements Stack<T> {
 
-    /** 初始长度为8 */
+    /** 初始容量为8 */
     private static final int DEFAULT_SIZE = 2 << 2;
 
     private Object[] stack;
