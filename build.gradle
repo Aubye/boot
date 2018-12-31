@@ -89,16 +89,10 @@ allprojects {
         runtime("org.springframework.boot:spring-boot-devtools")
 
         testCompile("org.springframework.boot:spring-boot-starter-test") {
-            //exclude module: "junit"
+            exclude module: "junit"
         }
-        testCompile("org.junit.jupit:4.12")
+        testCompile("junit:junit:4.12")
         testCompile("org.junit.jupiter:junit-jupiter-api")
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     }
 }
-
-//dependencies {
-//    compile project('platform:platform-commons')
-//    compile project('service:index-service')
-//    compile project('web:index-web')
-//}
