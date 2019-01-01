@@ -2,31 +2,31 @@ package com.learning.data.structure.linked;
 
 public class LinkedListNode<T> {
 
-    private T node;
+    private T data;
 
-    private LinkedListNode<T> nextNode;
+    private LinkedListNode<T> next;
 
     public LinkedListNode() {
     }
 
-    public LinkedListNode(T node, LinkedListNode<T> nextNode) {
-        this.node = node;
-        this.nextNode = nextNode;
+    public LinkedListNode(T data, LinkedListNode<T> next) {
+        this.data = data;
+        this.next = next;
     }
 
-    public T getNode() {
-        return node;
+    public T getData() {
+        return data;
     }
 
-    public void setNode(T node) {
-        this.node = node;
+    public void setData(T data) {
+        this.data = data;
     }
 
-    public LinkedListNode<T> getNextNode() {
-        return nextNode;
+    public LinkedListNode<T> getNext() {
+        return next;
     }
 
-    public void setNextNode(LinkedListNode<T> nextNode) {
-        this.nextNode = nextNode;
+    public void setNext(LinkedListNode<T> next) {
+        this.next = next;
     }
 }

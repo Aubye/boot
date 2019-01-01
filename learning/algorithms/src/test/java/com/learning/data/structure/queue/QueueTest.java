@@ -30,6 +30,35 @@ public class QueueTest {
         for (int i = 0; i < 20; i++) {
             System.out.println(queue.enqueue(i + 1));
         }
+        System.out.println("enqueue item number:20 all");
+
+        for (int i = 0; i < 20; i++) {
+            System.out.println(queue.dequeue());
+        }
+        System.out.println("dequeue item number:10 all");
+    }
+
+    @Test
+    public void testLinkedQueue() {
+        Queue<Integer> queue = new LinkedQueue<>();
+        for (int i = 0; i < 20; i++) {
+            System.out.println(queue.enqueue(i + 1));
+        }
+        for (int i = 0; i < 20; i++) {
+            System.out.println(queue.dequeue());
+        }
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(queue.enqueue(i + 1));
+        }
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(queue.dequeue());
+        }
+
+        for (int i = 0; i < 20; i++) {
+            System.out.println(queue.enqueue(i + 1));
+        }
 
         for (int i = 0; i < 20; i++) {
             System.out.println(queue.dequeue());

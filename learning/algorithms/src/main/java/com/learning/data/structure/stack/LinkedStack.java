@@ -13,20 +13,20 @@ public class LinkedStack<T> implements Stack<T> {
 
     @Override
     public T pop() {
-        LinkedListNode<T> next = header.getNextNode();
+        LinkedListNode<T> next = header.getNext();
         if (next == null) {
             return null;
         }
 
-        T data = header.getNode();
-        header.setNextNode(null);
+        T data = header.getData();
+        header.setNext(null);
         header = next;
         return data;
     }
 
     @Override
     public T peek() {
-        return header.getNextNode() == null ? null : header.getNode();
+        return header.getNext() == null ? null : header.getData();
     }
 
 }
