@@ -1,4 +1,4 @@
-# platform-vue
+# commons-vue
 
 > A Vue.js project
 
