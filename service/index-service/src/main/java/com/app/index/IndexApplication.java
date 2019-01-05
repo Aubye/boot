@@ -1,4 +1,4 @@
-package com.app.item;
+package com.app.index;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.app.item.service;
+package com.app.index.service;
 
 public interface IndexService {
 

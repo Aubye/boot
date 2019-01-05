@@ -1,4 +1,4 @@
-package com.app.item;
+package com.app.index;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,10 +7,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class IndexApplicationTests {
+public class IndexBootApplicationTests {
 
     @Test
     public void contextLoads() {
     }
 
 }
+

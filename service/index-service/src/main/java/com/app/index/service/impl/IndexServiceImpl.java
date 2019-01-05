@@ -1,6 +1,6 @@
-package com.app.item.service.impl;
+package com.app.index.service.impl;
 
-import com.app.item.service.IndexService;
+import com.app.index.service.IndexService;
 import org.springframework.stereotype.Service;
 
 @Service("indexService")

@@ -1,4 +1,4 @@
-package com.app.item.web;
+package com.app.index.web;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
