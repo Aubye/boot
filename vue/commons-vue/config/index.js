@@ -4,17 +4,22 @@
 
 const path = require('path')
 
+var assetsRoot = path.resolve(__dirname, '../build/resources/main/static')
+
 module.exports = {
   dev: {
 
     // Paths
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: 'assets',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      //代理前台/api开头的请求，代理到8080端口，spring boot的访问端口
+      '/api/**': 'http://localhost:8080'
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 3000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
@@ -38,11 +43,11 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(assetsRoot, '../dist/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    assetsRoot: assetsRoot,
+    assetsSubDirectory: 'assets',
     assetsPublicPath: '/',
 
     /**
