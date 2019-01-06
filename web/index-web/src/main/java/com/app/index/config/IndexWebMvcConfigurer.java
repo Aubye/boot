@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import javax.annotation.Resource;
 
 @Configuration
-public class IndexWebConfiguration extends WebMvcConfigurationSupport {
+public class IndexWebMvcConfigurer extends WebMvcConfigurationSupport {
 
     @Value("classpath:/static/index.html")
     private Resource indexHtml;

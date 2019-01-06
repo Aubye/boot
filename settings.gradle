@@ -4,6 +4,7 @@ include('learning:algorithms')
 include('learning:design')
 
 include('platform:platform-commons')
+include('platform:platform-config')
 include('platform:platform-amqp')
 
 include('service:index-service')

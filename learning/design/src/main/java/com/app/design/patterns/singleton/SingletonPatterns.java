@@ -4,6 +4,7 @@ public class SingletonPatterns {
 
     private volatile static SingletonObject singletonObject = null;
 
+    //
     public static SingletonObject getSingletonObject() {
         if (singletonObject != null) {
             synchronized (SingletonPatterns.class) {

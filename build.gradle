@@ -146,7 +146,7 @@ allprojects {
         compile("mysql:mysql-connector-java:${mySQLVersion}")
 
         // Hibernate
-        compile("org.hibernate:hibernate-entitymanager:${hibernateVersion}")
+        compile("org.hibernate:hibernate-core:${hibernateVersion}")
         //compile("com.github.hibernate-redis:hibernate-redis:${hibernateRedisVersion}")
 
         // MyBatis
