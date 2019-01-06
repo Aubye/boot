@@ -1,4 +1,4 @@
-# commons-vue
+# vue
 
 > A Vue.js project
 
