@@ -8,7 +8,5 @@ include('platform:platform-config')
 include('platform:platform-amqp')
 
 include('service:index-service')
-include('service:item-service')
 
 include('web:index-web')
-include('web:item-web')

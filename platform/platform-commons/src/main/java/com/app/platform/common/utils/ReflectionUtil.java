@@ -2,13 +2,15 @@ package com.app.platform.common.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -22,7 +24,8 @@ public final class ReflectionUtil {
     public static <T> T newInstance(Class<T> cls) {
         Object instance;
         try {
-            instance = cls.newInstance();
+            //instance = cls.newInstance(); 废弃
+            instance = cls.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             LOGGER.error("new instance failure", e);
             throw new RuntimeException(e);
@@ -77,28 +80,9 @@ public final class ReflectionUtil {
         };
     }
 
-    public static TypeWrapper typeParse(Type type) {
-        Class<?> cls = type instanceof ParameterizedType ? ((ParameterizedTypeImpl) type).getRawType() : (Class) type;
-        return Collection.class.isAssignableFrom(cls)
-                ? new TypeWrapper(getRawClass(type), getActualTypeArguments(type), Boolean.TRUE)
-                : new TypeWrapper(cls, new Type[0], Boolean.FALSE);
-    }
-
     public static Type[] getActualTypeArguments(Type type) {
         return ((ParameterizedType) type).getActualTypeArguments();
     }
-
-    /**
-     * ParameterizedType类型的Type获取外层类型
-     * 如：传入List<User>，返回List
-     *
-     * @param type
-     * @return
-     */
-    public static Class<?> getRawClass(Type type) {
-        return ((ParameterizedTypeImpl) type).getRawType();
-    }
-
 
     /**
      * 检查是否是基本类型或其包装类型
