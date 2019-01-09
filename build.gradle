@@ -66,6 +66,8 @@ allprojects {
     ext {
         junitVersion = '4.12'
 
+        lombokVersion = '1.18.4'
+
         guavaVersion = '27.0.1-jre'
         modelmapperVersion = '1.1.2'
 
@@ -106,6 +108,8 @@ allprojects {
 
         compile("org.springframework.boot:spring-boot-starter-freemarker")
         compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+        compile("org.projectlombok:lombok:${lombokVersion}")
 
         // Google Guava
         compile("com.google.guava:guava:${guavaVersion}")
