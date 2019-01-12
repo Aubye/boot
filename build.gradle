@@ -1,7 +1,7 @@
 buildscript {
     ext {
         springBootVersion = '2.1.1.RELEASE'
-        nodeVersion = '1.2.0'
+        /*nodeVersion = '1.2.0'*/
     }
     repositories {
         mavenLocal()
@@ -12,7 +12,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath("com.moowork.gradle:gradle-node-plugin:${nodeVersion}")
+        /*classpath("com.moowork.gradle:gradle-node-plugin:${nodeVersion}")*/
     }
 }
 
@@ -32,7 +32,7 @@ allprojects {
     group = 'com.spring'
     version = '0.0.1-SNAPSHOT'
 
-    description = """spring-boot"""
+    description = "spring-boot"
 
     sourceCompatibility = 11
     targetCompatibility = 11
@@ -41,11 +41,11 @@ allprojects {
         options.encoding = 'UTF-8'
     }
 
-    node {
+    /*node {
         version = '8.12.0'
         npmVersion = '6.5.0'
         download = true
-    }
+    }*/
 
     repositories {
         mavenLocal()
@@ -144,7 +144,7 @@ allprojects {
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     }
 
-    task npmBuild(type: NpmTask, dependsOn: 'npmInstall') {
+    /*task npmBuild(type: NpmTask, dependsOn: 'npmInstall') {
         group = 'node'
         args = ['run', 'build']
     }
@@ -164,5 +164,5 @@ allprojects {
     }
 
     processResources.dependsOn 'webpack'
-    clean.delete << file('node_modules')
+    clean.delete << file('node_modules')*/
 }
