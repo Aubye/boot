@@ -27,7 +27,7 @@ allprojects {
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
     //Node
-    apply plugin: "com.moowork.node"
+    /*apply plugin: "com.moowork.node"*/
 
     group = 'com.spring'
     version = '0.0.1-SNAPSHOT'
