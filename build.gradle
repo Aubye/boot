@@ -129,7 +129,7 @@ allprojects {
         //Logback 默认日志启动器
         //compile("org.springframework.boot:spring-boot-starter-logging")
         //使用Log4j2进行日志记录,替代spring-boot-starter-logging
-        compile("org.springframework.boot:spring-boot-starter-log4j2")
+        //compile("org.springframework.boot:spring-boot-starter-log4j2")
         //compile("org.springframework.boot:spring-boot-starter-reactor-netty")
         //compile("org.springframework.boot:spring-boot-starter-jetty")
         //compile("org.springframework.boot:spring-boot-starter-tomcat")
