@@ -6,26 +6,27 @@ public class QuickSort {
 
     private static int partition(int[] items, int left, int right) {
         int i = left;
+        int j = right;
         int pivot = items[right];
 
-        int temp;
-        for (int j = left; j < right; j++) {
-            if (items[j] < pivot) {
-                temp = items[i];
-                items[i] = items[j];
-                items[j] = temp;
+        for (int k = left; k < j; k++) {
+            if (items[k] < pivot) {
+                swap(items, k, i);
                 i++;
             }
         }
-        items[right] = items[i];
-        items[i] = pivot;
+
+        swap(items, i, j);
         return i;
     }
 
+    private static void sort(int[] items) {
+        sort(items, 0, items.length - 1);
+    }
+
     private static void sort(int[] items, int left, int right) {
-        int center;
         if(left < right) {
-            center = partition(items, left, right);
+            int center = partition(items, left, right);
             sort(items, left,center - 1);
             sort(items,center + 1, right);
         }
@@ -45,9 +46,7 @@ public class QuickSort {
             if (i >= j) {
                 break;
             }
-            int temp = items[i];
-            items[i] = items[j];
-            items[j] = temp;
+            swap(items, i, j);
         }
         items[left] = items[j];
         items[j] = main;
@@ -63,54 +62,67 @@ public class QuickSort {
         }
     }
 
-    void quicksort(int[] items, int left, int right) {
-        int i, j, t, temp;
-        if(left > right) {
+    private static void quickSort(int[] items) {
+        quickSort(items, 0, items.length - 1);
+    }
+
+    private static void quickSort(int[] items, int left, int right) {
+        if (right <= left) {
             return;
         }
-        temp = items[left];
-        i = left;
-        j = right;
-        while(i != j) {
-            while(items[j] >= temp && i < j) {
-                j--;
-            }
-            while(items[i] <= temp && i < j) {
-                i++;
-            }
-            if(i < j){
-                t = items[i];
-                items[i] = items[j];
-                items[j] = t;
-            }
-        }
-        items[left] = items[i];
-        items[i] = temp;
+        int center = quickPartition(items, left, right);
+        quickSort(items, left, center - 1);
+        quickSort(items, center + 1, right);
+    }
 
-        quicksort(items,left, i - 1);
-        quicksort(items,i + 1, right);
+    private static int quickPartition(int[] items, int left, int right) {
+        int i = left;
+        int j = right + 1;
+        int pivot = items[left];
+        while (true) {
+            while (items[++i] <= pivot) {
+                if (i == right) {
+                    break;
+                }
+            }
+            while (items[--j] >= pivot) {
+                if (j == left) {
+                    break;
+                }
+            }
+            if (i >= j) {
+                break;
+            }
+            swap(items, i, j);
+        }
+        swap(items, left, j);
+        return j;
+    }
+
+    private static void swap(int[] items, int i, int j) {
+        int temp = items[i];
+        items[i] = items[j];
+        items[j] = temp;
     }
 
     public static void main(String[] args) {
+        System.out.println("-------- sort --------");
         int[] items = new int[] {8, 1, 3, 2, 7, 6, 4};
-        sort(items, 0, items.length - 1);
+        sort(items);
         System.out.println("items:" + Arrays.toString(items));
 
-        int[] items2 = new int[] {8, 1, 3, 2, 7, 6, 4};
-        sort2(items2, 0, items.length - 1);
+        int[] items2 = new int[] {8, 1, 3, 2, 7, 6, 4, 10, 12, 2, 3};
+        sort(items2);
         System.out.println("items2:" + Arrays.toString(items2));
 
-        int[] items3 = new int[] {8, 1, 3, 2, 7, 6, 4, 10, 12, 2, 3};
-        sort(items3, 0, items.length - 1);
+        System.out.println("-------- quickSort --------");
+        int[] items3 = new int[] {8, 1, 3, 2, 7, 6, 4};
+        quickSort(items3);
         System.out.println("items3:" + Arrays.toString(items3));
 
         int[] items4 = new int[] {8, 1, 3, 2, 7, 6, 4, 10, 12, 2, 3};
-        sort2(items4, 0, items.length - 1);
+        quickSort(items4);
         System.out.println("items4:" + Arrays.toString(items4));
-
-        int[] items5 = new int[] {8, 1, 3, 2, 7, 6, 4, 10, 12, 2};
-        sort2(items5, 0, items.length - 1);
-        System.out.println("items5:" + Arrays.toString(items5));
     }
 
 }
