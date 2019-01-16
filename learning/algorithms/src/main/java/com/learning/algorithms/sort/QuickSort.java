@@ -1,6 +1,7 @@
 package com.learning.algorithms.sort;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class QuickSort {
 
@@ -99,6 +100,25 @@ public class QuickSort {
         return j;
     }
 
+    private static void quickRandomSort(int[] items) {
+        quickSort(items, 0, items.length - 1);
+    }
+
+    private static void quickRandomSort(int[] items, int left, int right) {
+        if (right <= left) {
+            return;
+        }
+        int center = randomPartition(items, left, right);
+        quickSort(items, left, center - 1);
+        quickSort(items, center + 1, right);
+    }
+
+    private static int randomPartition(int[] items, int left, int right) {
+        int i = new Random().nextInt(right - left) + left;
+        swap(items, i, left);
+        return quickPartition(items, left, right);
+    }
+
     private static void swap(int[] items, int i, int j) {
         int temp = items[i];
         items[i] = items[j];
@@ -123,6 +143,15 @@ public class QuickSort {
         int[] items4 = new int[] {8, 1, 3, 2, 7, 6, 4, 10, 12, 2, 3};
         quickSort(items4);
         System.out.println("items4:" + Arrays.toString(items4));
+
+        System.out.println("-------- quickRandomSort --------");
+        int[] items5 = new int[] {8, 1, 3, 2, 7, 6, 4};
+        quickRandomSort(items5);
+        System.out.println("items3:" + Arrays.toString(items5));
+
+        int[] items6 = new int[] {8, 1, 3, 2, 7, 6, 4, 10, 12, 2, 3};
+        quickRandomSort(items6);
+        System.out.println("items4:" + Arrays.toString(items6));
     }
 
 }
