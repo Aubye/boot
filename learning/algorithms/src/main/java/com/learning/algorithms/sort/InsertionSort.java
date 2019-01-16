@@ -5,6 +5,7 @@ import java.util.Arrays;
 /**
  * 插入排序
  * O(n^2)
+ * Simple
  * 从左往右逐步,保证每次从左边起都是到右边都是有序的,再每次i时都对比换位直到不小于当前为止
  */
 public class InsertionSort {

@@ -5,6 +5,7 @@ import java.util.Arrays;
 /**
  * 冒泡排序
  * O(n^2)
+ * Simple
  * 每次都将最大的数放在右边,外层循环控制对从哪个下标开始
  */
 public class BubbleSort {
