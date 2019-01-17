@@ -4,6 +4,8 @@ public class MaxHeap {
 
     private Integer[] items;
 
+    private int[] ints;
+
     private int count;
 
     /** initCapacity = 16 */
@@ -11,24 +13,21 @@ public class MaxHeap {
 
     public MaxHeap() {
         this.items = new Integer[capacity + 1];
-        this.count = 1;
+        this.ints = new int[capacity];
+        this.count = 0;
+        this.items[0] = null;
     }
 
     public MaxHeap(int size) {
         this.items = new Integer[size + 1];
-        this.count = 1;
+        this.ints = new int[size];
+        this.count = 0;
+        this.items[0] = null;
     }
 
-    public MaxHeap(Integer[] ints) {
-        items = new Integer[ints.length + 1];
-        count = ints.length;
-
-        items[ints.length] = 0;
-        for (int i = 0; i < ints.length; i++) {
-            items[i] = ints[i];
-        }
-        swap(0, ints.length);
-        items[0] = null;
+    public MaxHeap(int[] ints) {
+        this.ints = ints;
+        this.count = 0;
     }
 
     private void swap(int i, int j) {
@@ -52,12 +51,12 @@ public class MaxHeap {
     //如果有子节点的值大于父节点
     private void sink(int k) {
         //2*k是k的左子节点,注意不要超过堆底
-        while (2*k <= 0) {
+        while (2*k <= count) {
             //j(2*k)是替换标识
             int j = 2*k;
             //(j+1)2*k+1是k的右子节点,注意不要超过堆底
             //如果左子节点小于右子节点,将j替换标识移动至右子节点
-            if (j < 0 && less(j, j + 1)) {
+            if (j < count && less(j, j + 1)) {
                 j++;
             }
             //如果k小于等于较大的子节点,退出
@@ -69,14 +68,6 @@ public class MaxHeap {
             //将k的坐标更新,进行下次循环
             k = j;
         }
-    }
-
-    public boolean isEmpty() {
-        return count == 0;
-    }
-
-    public int size() {
-        return count;
     }
 
     public void insert(int value) {
@@ -100,15 +91,32 @@ public class MaxHeap {
         return items;
     }
 
-    public Integer[] sort() {
-        for (int i = count/2; i >= 1; i--) {
-            sink(i);
+    private void initHeap() {
+        items = new Integer[ints.length + 1];
+        items[count] = null;
+        for (int i = 0; i < ints.length; i++) {
+            int value = ints[i];
+            insert(value);
         }
-        while (count > 1) {
-            swap(1, count--);
-            sink(1);
+    }
+
+    private void adjust() {
+        for (int i = ints.length - 1; i >= 0; i--) {
+            if (count > 2) {
+                ints[i] = delMax();
+            } else {
+                if (count == 2) {
+                    swap(count, count - 1);
+                }
+                ints[i] = items[count--];
+            }
         }
-        return items;
+    }
+
+    public int[] sort() {
+        initHeap();
+        adjust();
+        return ints;
     }
 
 }
