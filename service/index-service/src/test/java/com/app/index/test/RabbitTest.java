@@ -16,9 +16,9 @@ public class RabbitTest {
 
     @Test
     public void send() throws InterruptedException {
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10000; i++) {
             sender.send();
-            Thread.sleep(1000);
+            Thread.sleep(100);
         }
     }
 

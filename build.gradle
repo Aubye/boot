@@ -19,7 +19,6 @@ buildscript {
 allprojects {
     //Java
     apply plugin: 'java'
-    apply plugin: 'war'
     //IDE
     apply plugin: 'idea'
     apply plugin: 'eclipse'
@@ -110,12 +109,12 @@ allprojects {
         compile("org.springframework.boot:spring-boot-starter-data-jpa")
         compile("org.springframework.boot:spring-boot-starter-data-jdbc")
         compile("org.springframework.boot:spring-boot-starter-data-redis")
-        compile("org.springframework.boot:spring-boot-starter-data-mongodb")
-        compile("org.springframework.boot:spring-boot-starter-data-solr")
+        //compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+        //compile("org.springframework.boot:spring-boot-starter-data-solr")
 
         compile("org.springframework.boot:spring-boot-starter-security")
-        compile("org.springframework.boot:spring-boot-starter-oauth2-client")
-        compile("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+        //compile("org.springframework.boot:spring-boot-starter-oauth2-client")
+        //compile("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
 
         compile("org.springframework.boot:spring-boot-starter-validation")
         compile("org.springframework.boot:spring-boot-starter-quartz")
@@ -134,13 +133,12 @@ allprojects {
         //compile("org.springframework.boot:spring-boot-starter-jetty")
         //compile("org.springframework.boot:spring-boot-starter-tomcat")
 
-        //compile("org.springframework.boot:spring-boot-starter-groovy-templates")
         compile("org.springframework.boot:spring-boot-starter-jersey")
         compile("org.springframework.boot:spring-boot-starter-freemarker")
         compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+        //compile("org.springframework.boot:spring-boot-starter-groovy-templates")
 
-        compile("org.springframework.boot:spring-boot-starter-actuator")
-
+        //compile("org.springframework.boot:spring-boot-starter-actuator")
         //compile("org.springframework.boot:spring-boot-starter-cloud-connectors")
 
         compile("org.projectlombok:lombok:${lombokVersion}")
