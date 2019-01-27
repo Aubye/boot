@@ -48,8 +48,6 @@ configure(allprojects.findAll { it.subprojects.empty }) {
     }
 
     ext {
-        springVersion = '5.1.3.RELEASE'
-
         lombokVersion = '1.18.4'
 
         guavaVersion = '27.0.1-jre'
@@ -66,8 +64,6 @@ configure(allprojects.findAll { it.subprojects.empty }) {
         commonsLang3Version = '3.8.1'
         commonsCollectionsVersion = '3.2.2'
         commonsIoVersion = '2.6'
-
-        slf4jVersion = '1.7.25'
 
         junitVersion = '4.12'
     }
@@ -99,10 +95,7 @@ configure(allprojects.findAll { it.subprojects.empty }) {
         compile("commons-collections:commons-collections:${commonsCollectionsVersion}")
         compile("commons-io:commons-io:${commonsIoVersion}")
 
-        //Slf4j
-        compile("org.slf4j:slf4j-api:${slf4jVersion}")
-        compile("org.slf4j:slf4j-log4j12:${slf4jVersion}")
-
+        //Junit
         testCompile("junit:junit:${junitVersion}")
     }
 }

@@ -9,4 +9,3 @@ public class IndexApplication {
         SpringApplication.run(IndexApplication.class, args);
     }
 }
-
