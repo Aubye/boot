@@ -1,0 +1,8 @@
+spring.datasource.url:
+spring.datasource.username:
+spring.datasource.password:
+spring.datasource.driver-class-name:
+
+server:
+  port: 8080
+server.tomcat.uri-encoding: UTF-8
