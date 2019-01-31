@@ -4,10 +4,6 @@ spring:
     url:
     username:
     password:
-    max-idle:
-    max-wait:
-    min-idle:
-    initial-size:
   redis:
     host:
     port:
@@ -18,11 +14,9 @@ spring:
     port:
     username:
     password:
-  data:
-    solr:
-      host:
+    virtual-host:
 
 server:
-  port: 8080
+  port: 8081
   tomcat:
     uri-encoding: UTF-8

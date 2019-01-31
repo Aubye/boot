@@ -1,7 +1,8 @@
 buildscript {
     ext {
         springBootVersion = '2.1.1.RELEASE'
-        /*nodeVersion = '1.2.0'*/
+//        springCloudVersion = 'Finchley.SR1'
+//        springCloudAliVersion = '0.2.1.RELEASE'
     }
     repositories {
         mavenLocal()
@@ -12,13 +13,20 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        /*classpath("com.moowork.gradle:gradle-node-plugin:${nodeVersion}")*/
     }
 }
 
 group = 'com.spring'
 version = '0.0.1-SNAPSHOT'
 description = "spring-boot"
+
+//allprojects {
+//    dependencyManagement {
+//        imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+//        imports { mavenBom("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}") }
+//        imports { mavenBom("org.springframework.cloud:spring-cloud-alibaba-dependencies:${springCloudAliVersion}") }
+//    }
+//}
 
 configure(allprojects.findAll { it.subprojects.empty }) {
     //Java
@@ -106,6 +114,7 @@ configure(subprojects.findAll {
     //Spring Boot
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
+
     //Node
     /*apply plugin: "com.moowork.node"*/
 
