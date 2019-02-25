@@ -4,4 +4,6 @@ public interface IndexService {
 
     String getIndex();
 
+    void aaa();
+
 }

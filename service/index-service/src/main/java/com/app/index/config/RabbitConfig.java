@@ -1,4 +1,4 @@
-package com.app.index.service.config;
+package com.app.index.config;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;

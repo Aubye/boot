@@ -1,6 +1,6 @@
 package com.app.index.test;
 
-import com.app.index.service.mq.Sender;
+import com.app.index.mq.Sender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

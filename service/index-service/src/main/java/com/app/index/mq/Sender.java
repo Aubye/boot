@@ -1,4 +1,4 @@
-package com.app.index.service.mq;
+package com.app.index.mq;
 
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

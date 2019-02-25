@@ -49,6 +49,8 @@ configure(allprojects.findAll { it.subprojects.empty }) {
         guavaVersion = '27.0.1-jre'
         modelmapperVersion = '1.1.2'
 
+        orikaVersion = '1.5.4'
+
         mySQLVersion = '8.0.13'
 
         hibernateVersion = '5.4.0.Final'
@@ -73,6 +75,9 @@ configure(allprojects.findAll { it.subprojects.empty }) {
 
         // ModelMapper
         implementation("org.modelmapper:modelmapper:${modelmapperVersion}")
+
+        //Orika
+        implementation("ma.glasnost.orika:orika-core:${orikaVersion}")
 
         // MySQL
         implementation("mysql:mysql-connector-java:${mySQLVersion}")
