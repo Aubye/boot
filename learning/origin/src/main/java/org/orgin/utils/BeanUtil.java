@@ -1,6 +1,6 @@
 package org.orgin.utils;
 
-import org.orgin.annotations.Ignore;
+import org.orgin.annotations.bean.Ignore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

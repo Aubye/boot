@@ -1,0 +1,74 @@
+package org.orgin.proxy;
+
+import org.modelmapper.internal.cglib.proxy.MethodProxy;
+import org.orgin.annotations.proxy.Proxy;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProxyChain {
+
+    /**
+     * 目标类
+     */
+    private final Class<?> targetClass;
+    /**
+     * 目标对象
+     */
+    private final Object targetObject;
+    /**
+     * 目标方法
+     */
+    private final Method targetMethod;
+    /**
+     * 方法代理
+     */
+    private final MethodProxy methodPorxy;
+    /**
+     * 方法参数
+     */
+    private final Object[] methodParams;
+
+    /**
+     * 代理列表
+     */
+    private List<Proxy> proxyList = new ArrayList<>();
+    /**
+     * 代理索引
+     */
+    private int porxyIndex = 0;
+
+    public ProxyChain(Class<?> targetClass, Object targetObject, Method targetMethod,
+                      MethodProxy methodPorxy, Object[] methodParams, List<Proxy> proxyList) {
+        this.targetClass = targetClass;
+        this.targetObject = targetObject;
+        this.targetMethod = targetMethod;
+        this.methodPorxy = methodPorxy;
+        this.methodParams = methodParams;
+        this.proxyList = proxyList;
+    }
+
+    public Class<?> getTargetClass() {
+        return targetClass;
+    }
+
+    public Method getTargetMethod() {
+        return targetMethod;
+    }
+
+    public Object[] getMethodParams() {
+        return methodParams;
+    }
+
+    public Object doProxyChain() throws Throwable {
+        Object methodResult;
+        if (porxyIndex < proxyList.size()) {
+            methodResult = proxyList.get(porxyIndex++).doProxy(this);
+        } else {
+            methodResult = methodPorxy.invokeSuper(targetObject, methodParams);
+        }
+        return methodResult;
+    }
+
+}
