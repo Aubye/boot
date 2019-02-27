@@ -106,7 +106,7 @@ public class DispatcherServlet extends HttpServlet {
             } else if (result instanceof Data) {
                 Data data = (Data) result;
                 Object model = data.getModel();
-                if (method != null) {
+                if (model != null) {
                     response.setContentType("application/json");
                     response.setCharacterEncoding("UTF-8");
                     PrintWriter writer = response.getWriter();
