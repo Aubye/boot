@@ -21,7 +21,9 @@ public class BeanHepler {
         }
     }
 
-    //获取Bean映射
+    /**
+     * 获取Bean映射
+     */
     public static Map<Class<?>, Object> getBeanMap() {
         return BEAN_MAP;
     }
@@ -37,4 +39,7 @@ public class BeanHepler {
         return (T) BEAN_MAP.get(cls);
     }
 
+    public static void setBean(Class<?> targetClass, Object proxy) {
+        BEAN_MAP.put(targetClass, proxy);
+    }
 }

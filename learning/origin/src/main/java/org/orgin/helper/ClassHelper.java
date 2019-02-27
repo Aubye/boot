@@ -63,7 +63,24 @@ public class ClassHelper {
         return beanClassSet;
     }
 
-    public static Set<Class<?>> getAnnotationClassSet(Class<? extends Annotation> annotation) {
+    /**
+     * 获取应用包下某父类(或接口)的所有子类(或实现类)
+     */
+    public static Set<Class<?>> getClassSetBySuper(Class<?> superClass) {
+        Set<Class<?>> classSet = Sets.newHashSet();
+        for (Class<?> cls : CLASS_SET) {
+            if (superClass.isAssignableFrom(cls) && !superClass.equals(cls)) {
+                classSet.add(cls);
+            }
+        }
+        return classSet;
+    }
+
+
+    /**
+     * 获取应用包下带有某注解的所有类
+     */
+    public static Set<Class<?>> getClassSetByAnnotation(Class<? extends Annotation> annotation) {
         return CLASS_SET.stream()
                 .filter(cls -> cls.isAnnotationPresent(annotation))
                 .collect(toSet());
