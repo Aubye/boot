@@ -13,23 +13,23 @@ repositories {
 }
 
 dependencies {
-    implementation("javax.servlet:javax.servlet-api:3.1.0")
+    implementation("javax.servlet:javax.servlet-api:4.0.1")
     implementation("javax.servlet.jsp:jsp-api:2.2")
     implementation("javax.servlet:jstl:1.2")
 
-    implementation("com.alibaba:fastjson:1.2.40")
-    implementation("org.freemarker:freemarker:2.3.23")
+    implementation("com.alibaba:fastjson:1.2.56")
+    implementation("org.freemarker:freemarker:2.3.28")
 
-    implementation("mysql:mysql-connector-java:6.0.6")
-    implementation("com.alibaba:druid:1.1.2")
+    implementation("mysql:mysql-connector-java:8.0.15")
+    implementation("com.alibaba:druid:1.1.14")
 
     implementation("cglib:cglib:3.2.10")
 
     implementation("commons-io:commons-io:2.6")
-    implementation("commons-collections:commons-collections:3.2.2")
     implementation("commons-codec:commons-codec:1.11")
     implementation("commons-beanutils:commons-beanutils:1.9.3")
-    implementation("org.apache.commons:commons-lang3:3.7")
+    implementation("commons-collections:commons-collections:3.2.2")
+    implementation("org.apache.commons:commons-lang3:3.8.1")
 
     implementation("com.alibaba:fastjson:1.2.40")
 

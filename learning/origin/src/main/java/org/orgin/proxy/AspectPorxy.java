@@ -39,23 +39,23 @@ public class AspectPorxy implements Proxy {
     }
 
 
-    private void begin() {
+    public void begin() {
     }
 
-    private boolean intercept(Class<?> cls, Method method, Object[] params) throws Throwable {
+    public boolean intercept(Class<?> cls, Method method, Object[] params) throws Throwable {
         return true;
     }
 
-    private void after(Class<?> cls, Method method, Object[] params) {
+    public void after(Class<?> cls, Method method, Object[] params) throws Throwable  {
     }
 
-    private void before(Class<?> cls, Method method, Object[] params) {
+    public void before(Class<?> cls, Method method, Object[] params) throws Throwable  {
     }
 
-    private void error(Class<?> cls, Method method, Object[] params) {
+    public void error(Class<?> cls, Method method, Object[] params) throws Throwable  {
     }
 
-    private void end() {
+    public void end() {
     }
 
 }
