@@ -24,7 +24,7 @@ public class ProxyChain {
     /**
      * 方法代理
      */
-    private final MethodProxy methodPorxy;
+    private final MethodProxy methodProxy;
     /**
      * 方法参数
      */
@@ -40,11 +40,11 @@ public class ProxyChain {
     private int porxyIndex = 0;
 
     public ProxyChain(Class<?> targetClass, Object targetObject, Method targetMethod,
-                      MethodProxy methodPorxy, Object[] methodParams, List<Proxy> proxyList) {
+                      MethodProxy methodProxy, Object[] methodParams, List<Proxy> proxyList) {
         this.targetClass = targetClass;
         this.targetObject = targetObject;
         this.targetMethod = targetMethod;
-        this.methodPorxy = methodPorxy;
+        this.methodProxy = methodProxy;
         this.methodParams = methodParams;
         this.proxyList = proxyList;
     }
@@ -66,7 +66,7 @@ public class ProxyChain {
         if (porxyIndex < proxyList.size()) {
             methodResult = proxyList.get(porxyIndex++).doProxy(this);
         } else {
-            methodResult = methodPorxy.invokeSuper(targetObject, methodParams);
+            methodResult = methodProxy.invokeSuper(targetObject, methodParams);
         }
         return methodResult;
     }

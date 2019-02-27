@@ -1,6 +1,7 @@
 package org.orgin.utils;
 
 import org.orgin.annotations.bean.Ignore;
+import org.orgin.constant.BeanConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 public final class BeanUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(BeanUtil.class);
 
-    private static final String SERIAL_VERSION_UID = "serialVersionUID";
+    private static final String SERIAL_VERSION_UID = BeanConstant.SERIAL_VERSION_UID;
 
     public static <T> T copyProperties(Object source, Class<T> targetClass) {
         T target = ReflectionUtil.newInstance(targetClass);
