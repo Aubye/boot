@@ -1,4 +1,4 @@
-package org.orgin.annotations.bean;
+package org.orgin.annotations.ioc;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

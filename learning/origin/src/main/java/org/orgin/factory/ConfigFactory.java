@@ -1,6 +1,6 @@
 package org.orgin.factory;
 
-import org.orgin.bean.YamlBean;
+import org.orgin.bean.yml.YamlBean;
 import org.orgin.constant.ConfigConstant;
 import org.orgin.utils.YamlUtil;
 

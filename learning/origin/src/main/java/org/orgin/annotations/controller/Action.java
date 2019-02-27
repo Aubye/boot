@@ -1,4 +1,6 @@
-package org.orgin.annotations.bean;
+package org.orgin.annotations.controller;
+
+import org.orgin.emnu.RequestMethod;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,6 +9,8 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Controller {
+public @interface Action {
+    String value();
 
+    RequestMethod method() default RequestMethod.GET;
 }

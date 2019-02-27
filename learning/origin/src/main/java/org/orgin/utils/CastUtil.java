@@ -47,7 +47,7 @@ public final class CastUtil {
         return value;
     }
 
-    public static double castLong(Object obj) {
+    public static long castLong(Object obj) {
         return castLong(obj, 0);
     }
 

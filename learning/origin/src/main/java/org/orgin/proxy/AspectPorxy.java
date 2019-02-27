@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
 
-import static jdk.internal.jline.internal.Log.error;
 
 public class AspectPorxy implements Proxy {
     private static final Logger LOGGER = LoggerFactory.getLogger(AspectPorxy.class);
@@ -39,24 +38,24 @@ public class AspectPorxy implements Proxy {
         return result;
     }
 
+
+    private void begin() {
+    }
+
     private boolean intercept(Class<?> cls, Method method, Object[] params) throws Throwable {
         return true;
     }
 
     private void after(Class<?> cls, Method method, Object[] params) {
-
     }
 
     private void before(Class<?> cls, Method method, Object[] params) {
-
     }
 
-    private void begin() {
-
+    private void error(Class<?> cls, Method method, Object[] params) {
     }
 
     private void end() {
-
     }
 
 }

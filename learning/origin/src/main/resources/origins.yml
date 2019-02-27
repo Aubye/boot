@@ -1,0 +1,9 @@
+jdbcDriver: com.mysql.cj.jdbc.Driver
+jdbcUrl:
+jdbcUsername:
+jdbcPassword:
+
+datasource:
+  maxActive: 25
+  minIdle: 1
+  initialSize: 10
