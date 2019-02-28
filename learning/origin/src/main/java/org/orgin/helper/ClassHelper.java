@@ -3,7 +3,6 @@ package org.orgin.helper;
 import com.google.common.collect.Sets;
 import org.orgin.annotations.bean.Controller;
 import org.orgin.annotations.bean.Service;
-import org.orgin.factory.ConfigFactory;
 import org.orgin.utils.ClassUtil;
 
 import java.lang.annotation.Annotation;
@@ -16,7 +15,7 @@ public class ClassHelper {
     private static final Set<Class<?>> CLASS_SET;
 
     static {
-        String basePackage = ConfigFactory.getAppBasePackage();
+        String basePackage = ConfigHelper.getAppBasePackage();
         CLASS_SET = ClassUtil.getClassSet(basePackage);
     }
 
