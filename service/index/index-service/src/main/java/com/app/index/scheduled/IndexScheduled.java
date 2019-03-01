@@ -19,7 +19,7 @@ public class IndexScheduled {
 
     @Scheduled(cron = "0/5 * * * * ? ")
     public void execute() {
-        indexService.aaa();
+        //indexService.aaa();
     }
 
     public static void main(String[] args) {

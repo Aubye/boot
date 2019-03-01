@@ -1,6 +1,11 @@
 spring:
   main:
     allow-bean-definition-overriding: true
+  security:
+    user:
+      name: actuator
+      password: actuator
+      roles: ACTUATOR_ADMIN
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url:
