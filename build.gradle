@@ -43,6 +43,10 @@ configure(allprojects.findAll { it.subprojects.empty }) {
         options.encoding = 'UTF-8'
     }
 
+    test {
+        exclude '**/*'
+    }
+
     ext {
         lombokVersion = '1.18.4'
 
