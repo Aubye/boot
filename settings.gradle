@@ -9,6 +9,7 @@ include('platform:platform-commons')
 include('platform:platform-config')
 include('platform:platform-amqp')
 
-include('service:index-service')
+include('service:index:index-api')
+include('service:index:index-service')
 
 include('web:index-web')

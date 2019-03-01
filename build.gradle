@@ -210,3 +210,18 @@ configure(subprojects.findAll {
     }
 
 }
+
+configure(subprojects.findAll {
+    it.subprojects.empty && (it.name.endsWith('-api'))
+}) {
+
+    ext {}
+
+    dependencies {
+        /** Spring Boot */
+        implementation("org.springframework.boot:spring-boot-starter:${springBootVersion}")
+        implementation("org.springframework.boot:spring-boot-starter-jersey:${springBootVersion}")
+        testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+    }
+
+}
