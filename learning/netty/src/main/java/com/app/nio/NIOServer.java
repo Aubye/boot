@@ -1,8 +1,5 @@
 package com.app.nio;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -15,8 +12,6 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class NIOServer {
-    private static final Logger LOGGER = LoggerFactory.getLogger(NIOServer.class);
-
     public static void main(String[] args) throws IOException {
         Selector serverSelector = Selector.open();
         Selector clientSelector = Selector.open();
