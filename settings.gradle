@@ -4,6 +4,7 @@ include('learning:algorithms')
 include('learning:concurrent')
 include('learning:design')
 include('learning:origin')
+include('learning:netty')
 
 include('platform:platform-commons')
 include('platform:platform-config')
