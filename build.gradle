@@ -122,7 +122,9 @@ configure(subprojects.findAll {
         }
     }
 
-    ext {}
+    ext {
+        rocketMqVersion = '4.4.0'
+    }
 
     dependencies {
         /** Spring Boot */
