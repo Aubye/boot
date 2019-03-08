@@ -3,12 +3,12 @@ rootProject.name = 'boot'
 include('learning:algorithms')
 include('learning:concurrent')
 include('learning:design')
-include('learning:origin')
 include('learning:netty')
+include('learning:origin')
 
 include('platform:platform-commons')
 include('platform:platform-config')
-include('platform:platform-amqp')
+include('platform:platform-mq')
 
 include('service:index:index-api')
 include('service:index:index-service')

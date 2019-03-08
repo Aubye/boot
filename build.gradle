@@ -129,28 +129,39 @@ configure(subprojects.findAll {
     dependencies {
         /** Spring Boot */
         implementation("org.springframework.boot:spring-boot-starter")
+        //AOP
         implementation("org.springframework.boot:spring-boot-starter-aop")
+        //AMQP
         implementation("org.springframework.boot:spring-boot-starter-amqp")
-        implementation("org.springframework.boot:spring-boot-starter-batch")
-        implementation("org.springframework.boot:spring-boot-starter-cache")
-        implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-        implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
-        implementation("org.springframework.boot:spring-boot-starter-data-redis")
-        //implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
-        //implementation("org.springframework.boot:spring-boot-starter-data-solr")
-
+        //Dubbo
+        //implementation("org.springframework.boot:spring-boot-starter-dubbo")
+        //Actuator - HealthCheck
+        implementation("org.springframework.boot:spring-boot-starter-actuator")
+        //Security
         implementation("org.springframework.boot:spring-boot-starter-security")
-        //implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
-        //implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
-
-        implementation("org.springframework.boot:spring-boot-starter-validation")
-        implementation("org.springframework.boot:spring-boot-starter-quartz")
+        //Data-JPA
+        implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+        //JDBC
+        implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+        //Redis
+        implementation("org.springframework.boot:spring-boot-starter-data-redis")
+        //JSON
         implementation("org.springframework.boot:spring-boot-starter-json")
-        implementation("org.springframework.boot:spring-boot-starter-mail")
-
+        //Quartz
+        implementation("org.springframework.boot:spring-boot-starter-quartz")
+        //Annotation Validation
+        implementation("org.springframework.boot:spring-boot-starter-validation")
+        //WebFlux
         implementation("org.springframework.boot:spring-boot-starter-webflux")
-        implementation("org.springframework.boot:spring-boot-starter-web-services")
+        //Websocket
         implementation("org.springframework.boot:spring-boot-starter-websocket")
+        //RESTful
+        implementation("org.springframework.boot:spring-boot-starter-jersey")
+        //Groovy Template
+        implementation("org.springframework.boot:spring-boot-starter-groovy-templates")
+
+        //Devtools
+        runtime("org.springframework.boot:spring-boot-devtools")
 
         //Logback 默认日志启动器
         //implementation("org.springframework.boot:spring-boot-starter-logging")
@@ -160,14 +171,23 @@ configure(subprojects.findAll {
         //implementation("org.springframework.boot:spring-boot-starter-jetty")
         //implementation("org.springframework.boot:spring-boot-starter-tomcat")
 
-        implementation("org.springframework.boot:spring-boot-starter-jersey")
-        //implementation("org.springframework.boot:spring-boot-starter-groovy-templates")
+        //Other
+        //implementation("org.springframework.boot:spring-boot-starter-mail")
+        //implementation("org.springframework.boot:spring-boot-starter-batch")
+        //implementation("org.springframework.boot:spring-boot-starter-cache")
+        //implementation("org.springframework.boot:spring-boot-starter-web-services")
 
-        implementation("org.springframework.boot:spring-boot-starter-actuator")
+        //NoSQL
+        //implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+        //implementation("org.springframework.boot:spring-boot-starter-data-solr")
+
+        //OAuth2 JWT
+        //implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+        //implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+
         //implementation("org.springframework.boot:spring-boot-starter-cloud-connectors")
 
-        //runtime("org.springframework.boot:spring-boot-devtools")
-
+        //Junit
         testImplementation("org.springframework.boot:spring-boot-starter-test")
     }
 }
@@ -221,20 +241,24 @@ configure(subprojects.findAll {
     it.subprojects.empty && (it.name.startsWith('platform-'))
 }) {
 
-    ext {}
+    ext {
+        rocketMqVersion = '4.4.0'
+    }
 
     dependencies {
         /** Spring Boot */
         implementation("org.springframework.boot:spring-boot-starter:${springBootVersion}")
         implementation("org.springframework.boot:spring-boot-starter-aop:${springBootVersion}")
-        implementation("org.springframework.boot:spring-boot-starter-amqp:${springBootVersion}")
-        implementation("org.springframework.boot:spring-boot-starter-batch:${springBootVersion}")
-        implementation("org.springframework.boot:spring-boot-starter-cache:${springBootVersion}")
+        
         implementation("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
         implementation("org.springframework.boot:spring-boot-starter-data-jdbc:${springBootVersion}")
+        
         implementation("org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}")
 
         implementation("org.springframework.boot:spring-boot-starter-validation:${springBootVersion}")
+
+        implementation("org.springframework.boot:spring-boot-starter-amqp:${springBootVersion}")
+        implementation("org.apache.rocketmq:rocketmq-client:${rocketMqVersion}")
 
         testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
     }
