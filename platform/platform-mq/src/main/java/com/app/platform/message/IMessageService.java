@@ -1,4 +1,4 @@
-package com.app.platform.amqp;
+package com.app.platform.message;
 
 public interface IMessageService {
 }

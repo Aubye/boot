@@ -8,7 +8,7 @@ include('learning:netty')
 
 include('platform:platform-commons')
 include('platform:platform-config')
-include('platform:platform-amqp')
+include('platform:platform-mq')
 
 include('service:index:index-api')
 include('service:index:index-service')

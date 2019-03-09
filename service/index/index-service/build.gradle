@@ -1,3 +1,5 @@
 dependencies {
+    implementation project(':platform:platform-commons')
+
     implementation project(":service:index:index-api")
 }
