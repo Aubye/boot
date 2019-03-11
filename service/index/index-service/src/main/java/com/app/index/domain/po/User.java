@@ -1,8 +1,11 @@
 package com.app.index.domain.po;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -10,7 +13,7 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "user_seq_generator")
     private Long id;
 
     @Column(name = "uuid")
@@ -28,7 +31,15 @@ public class User {
     @Column(name = "status")
     private Integer status;
 
-    @Column(name = "isDel")
+    @Column(name = "is_del")
     private Integer isDel;
+
+    @Column(name = "create_time", updatable = false)
+    @CreationTimestamp
+    private LocalDateTime createTime;
+
+    @Column(name = "update_time")
+    @UpdateTimestamp
+    private LocalDateTime updateTime;
 
 }

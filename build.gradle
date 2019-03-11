@@ -57,8 +57,6 @@ configure(allprojects.findAll { it.subprojects.empty }) {
         modelmapperVersion = "1.1.2"
         orikaVersion = "1.5.4"
 
-        dom4jVesion = "2.1.1"
-        yamljVesion = "1.18"
         fastJosnVersion = "1.2.56"
 
         commonsIoVersion = "2.6"
@@ -83,10 +81,6 @@ configure(allprojects.findAll { it.subprojects.empty }) {
         // Orika
         implementation("ma.glasnost.orika:orika-core:${orikaVersion}")
 
-        //Dom4J
-        implementation("org.dom4j:dom4j:${dom4jVesion}")
-        //YAML
-        implementation("org.yaml:snakeyaml:${yamljVesion}")
         //FastJSON
         implementation("com.alibaba:fastjson:${fastJosnVersion}")
 
@@ -119,6 +113,8 @@ configure(subprojects.findAll {
 
     ext {
         rocketMqVersion = "4.4.0"
+
+        mysqlVersion = "8.0.15"
 
         druidVersion = "1.1.14"
 
@@ -167,6 +163,8 @@ configure(subprojects.findAll {
         // Spring Mail
         implementation("org.springframework.boot:spring-boot-starter-mail:${springBootVersion}")
 
+        // MySQL
+        implementation("mysql:mysql-connector-java:${mysqlVersion}")
         // Druid
         implementation("com.alibaba:druid:${druidVersion}")
 
