@@ -1,14 +1,16 @@
 rootProject.name = 'boot'
 
+include('common:common-base')
+
 include('learning:algorithms')
 include('learning:concurrent')
 include('learning:design')
 include('learning:netty')
 include('learning:origin')
 
-include('platform:platform-commons')
 include('platform:platform-config')
-include('platform:platform-mq')
+include('platform:platform-erueka')
+include('platform:platform-stream')
 
 include('service:index:index-api')
 include('service:index:index-service')

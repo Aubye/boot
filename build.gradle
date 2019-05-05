@@ -52,63 +52,99 @@ configure(allprojects.findAll { it.subprojects.empty }) {
     }
 
     ext {
-        lombokVersion = '1.18.4'
+        guavaVersion = "27.1-jre"
 
-        guavaVersion = '27.0.1-jre'
-        modelmapperVersion = '1.1.2'
-        orikaVersion = '1.5.4'
+        orikaVersion = "1.5.4"
+        modelmapperVersion = "2.3.3"
 
-        mySQLVersion = '8.0.13'
+        fastJsonVersion = "1.2.57"
 
-        hibernateVersion = '5.4.0.Final'
-
-        mybatisVersion = '3.4.6'
-        mybatisSpringVersion = '1.3.2'
-        pagehelperVersion = '5.1.8'
-
-        commonsLang3Version = '3.8.1'
-        commonsCollectionsVersion = '3.2.2'
-        commonsIoVersion = '2.6'
+        commonsIoVersion = "2.6"
+        commonsCodecVersion = "1.12"
+        commonsLang3Version = "3.9"
+        commonsBeanutilsVersion = "1.9.3"
+        commonsCollectionsVersion = "3.2.2"
+        commonsCollections4Version = "4.3"
 
         junitVersion = '4.12'
     }
 
     dependencies {
-        //Lombok
-        compileOnly ("org.projectlombok:lombok:${lombokVersion}")
-        annotationProcessor ("org.projectlombok:lombok:${lombokVersion}")
-
-        // Google Guava
+        //Google Guava
         compile("com.google.guava:guava:${guavaVersion}")
 
-        // ModelMapper
-        compile("org.modelmapper:modelmapper:${modelmapperVersion}")
         //Orika
         compile("ma.glasnost.orika:orika-core:${orikaVersion}")
+        //ModelMapper
+        compile("org.modelmapper:modelmapper:${modelmapperVersion}")
 
-        // MySQL
-        compile("mysql:mysql-connector-java:${mySQLVersion}")
-        // Hibernate
-        compile("org.hibernate:hibernate-core:${hibernateVersion}")
-        //compile("com.github.hibernate-redis:hibernate-redis:${hibernateRedisVersion}")
-        // MyBatis
-        compile("org.mybatis:mybatis:${mybatisVersion}")
-        compile("org.mybatis:mybatis-spring:${mybatisSpringVersion}")
-        compile("com.github.pagehelper:pagehelper:${pagehelperVersion}")
+        //FastJSON
+        compile("com.alibaba:fastjson:${fastJsonVersion}")
 
-        // Commons
-        compile("org.apache.commons:commons-lang3:${commonsLang3Version}")
-        compile("commons-collections:commons-collections:${commonsCollectionsVersion}")
+        //Commons
         compile("commons-io:commons-io:${commonsIoVersion}")
+        compile("commons-codec:commons-codec:${commonsCodecVersion}")
+        compile("org.apache.commons:commons-lang3:${commonsLang3Version}")
+        compile("commons-beanutils:commons-beanutils:${commonsBeanutilsVersion}")
+        compile("commons-collections:commons-collections:${commonsCollectionsVersion}")
+        compile("org.apache.commons:commons-collections4:${commonsCollections4Version}")
 
         //Junit
-        testcompile("junit:junit:${junitVersion}")
+        testCompile("junit:junit:${junitVersion}")
+    }
+}
+
+configure(subprojects.findAll {
+    it.subprojects.empty && (it.name.startsWith('common-'))
+}) {
+    ext {
+        rocketMqVersion = "4.4.0"
+        kafkaVersion = "2.1.2.RELEASE"
+    }
+
+    dependencies {
+        //Spring Boot
+        compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
+        //Spring AOP
+        compile("org.springframework.boot:spring-boot-starter-aop:${springBootVersion}")
+
+        //Spring Data JPA
+        compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+        //Spring Data JDBC
+        compile("org.springframework.boot:spring-boot-starter-data-jdbc:${springBootVersion}")
+
+        //Spring Data Redis
+        compile("org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}")
+
+        //Spring Validation
+        compile("org.springframework.boot:spring-boot-starter-validation:${springBootVersion}")
+
+        //Spring AMQP
+        compile("org.springframework.boot:spring-boot-starter-amqp:${springBootVersion}")
+        //RocketMQ
+        compile("org.apache.rocketmq:rocketmq-client:${rocketMqVersion}")
+        //Kafka
+        compile("org.springframework.cloud:spring-cloud-starter-stream-kafka:${kafkaVersion}")
+
+        //Spring Test
+        testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
     }
 }
 
 configure(subprojects.findAll {
     it.subprojects.empty && (it.name.startsWith('platform-'))
 }) {
+    //Spring Boot
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+            mavenBom("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+            mavenBom("org.springframework.cloud:spring-cloud-alibaba-dependencies:${springCloudAliVersion}")
+        }
+    }
 
     ext {
         rocketMqVersion = "4.4.0"
@@ -116,22 +152,22 @@ configure(subprojects.findAll {
     }
 
     dependencies {
-        /** Spring Boot */
-        compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
-        compile("org.springframework.boot:spring-boot-starter-aop:${springBootVersion}")
+        //Spring Boot
+        compile("org.springframework.boot:spring-boot-starter")
+        compile("org.springframework.boot:spring-boot-starter-aop")
 
-        compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
-        compile("org.springframework.boot:spring-boot-starter-data-jdbc:${springBootVersion}")
+        compile("org.springframework.boot:spring-boot-starter-data-jpa")
+        compile("org.springframework.boot:spring-boot-starter-data-jdbc")
 
-        compile("org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}")
+        compile("org.springframework.boot:spring-boot-starter-data-redis")
 
-        compile("org.springframework.boot:spring-boot-starter-validation:${springBootVersion}")
+        compile("org.springframework.boot:spring-boot-starter-validation")
 
-        compile("org.springframework.boot:spring-boot-starter-amqp:${springBootVersion}")
+        compile("org.springframework.boot:spring-boot-starter-amqp")
         compile("org.apache.rocketmq:rocketmq-client:${rocketMqVersion}")
         compile("org.springframework.cloud:spring-cloud-starter-stream-kafka:${kafkaVersion}")
 
-        testcompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+        testCompile("org.springframework.boot:spring-boot-starter-test")
     }
 
 }
@@ -143,10 +179,10 @@ configure(subprojects.findAll {
     ext {}
 
     dependencies {
-        /** Spring Boot */
+        //Spring Boot
         compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
         compile("org.springframework.boot:spring-boot-starter-jersey:${springBootVersion}")
-        testcompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+        testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
     }
 
 }
@@ -171,7 +207,7 @@ configure(subprojects.findAll {
     }
 
     dependencies {
-        /** Spring Boot */
+        //Spring Boot
         compile("org.springframework.boot:spring-boot-starter")
         //AOP
         compile("org.springframework.boot:spring-boot-starter-aop")
@@ -232,7 +268,7 @@ configure(subprojects.findAll {
         //compile("org.springframework.boot:spring-boot-starter-cloud-connectors")
 
         //Junit
-        testcompile("org.springframework.boot:spring-boot-starter-test")
+        testCompile("org.springframework.boot:spring-boot-starter-test")
     }
 }
 
@@ -258,7 +294,7 @@ configure(subprojects.findAll {
     ext {}
 
     dependencies {
-        /** Spring Boot */
+        //Spring Boot
         compile("org.springframework.boot:spring-boot-starter")
         compile("org.springframework.boot:spring-boot-starter-web")
 
@@ -277,6 +313,6 @@ configure(subprojects.findAll {
 
         compile("org.springframework.boot:spring-boot-starter-actuator")
 
-        testcompile("org.springframework.boot:spring-boot-starter-test")
+        testCompile("org.springframework.boot:spring-boot-starter-test")
     }
 }
